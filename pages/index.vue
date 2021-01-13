@@ -1,9 +1,11 @@
 <template>
-  <div></div>
+  <div />
 </template>
 
 <script>
-export default {}
+export default {
+  middleware({ redirect }) {
+    redirect('/catalog')
+  },
+}
 </script>
-
-<style></style>
