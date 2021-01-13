@@ -9,4 +9,6 @@ export default {}
 <style lang="sass" scoped>
 img
   cursor: pointer
+  width: 24px
+  height: 26px
 </style>
