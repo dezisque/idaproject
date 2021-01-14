@@ -6,22 +6,21 @@
         <b>4.5</b>
       </div>
       <img
-        src="https://frontend-test.idaproject.com/upload/product/backpack15-067a.cc84tf.jpg"
+        :src="`https://frontend-test.idaproject.com${photo}`"
         class="product__image"
       />
       <button class="product__add-to-cart"></button>
-      <!-- <img src="~/assets/cart.svg" class="product__add-to-cart" /> -->
     </div>
 
-    <div class="product__name">Рюкзак Louis Vuitton Discovery</div>
-    <b class="product__price">150 000р</b>
+    <div class="product__name">{{ name }}</div>
+    <b class="product__price">{{ computedPrice }}</b>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    id: {
+    productId: {
       type: Number,
       required: true,
     },
@@ -38,6 +37,11 @@ export default {
       required: true,
     },
   },
+  computed: {
+    computedPrice() {
+      return this.price.toLocaleString() + ' ₽'
+    },
+  },
 }
 </script>
 
@@ -49,10 +53,11 @@ export default {
   height: 272px
   width: 264px
 
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05)
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05)
   border-radius: 8px
 
   padding: 17px 18px 16px 16px
+  margin-bottom: 16px
 
   &__view
     display: flex
