@@ -6,8 +6,9 @@
         <b>{{ rating }}</b>
       </div>
       <img
-        :src="`https://frontend-test.idaproject.com${photo}`"
+        :src="generatePhotoLink(photo)"
         class="product__image"
+        alt="Изображение продукта"
       />
       <button class="product__add-to-cart" @click="addProductToCart"></button>
     </div>
@@ -18,34 +19,14 @@
 </template>
 
 <script>
+import {
+  computedPrice,
+  generatePhotoLink,
+  productPropsSchema,
+} from '~/assets/ustils/mixins/product'
+
 export default {
-  props: {
-    productId: {
-      type: Number,
-      required: true,
-    },
-    name: {
-      type: String,
-      required: true,
-    },
-    price: {
-      type: Number,
-      required: true,
-    },
-    photo: {
-      type: String,
-      required: true,
-    },
-    rating: {
-      type: Number,
-      required: true,
-    },
-  },
-  computed: {
-    computedPrice() {
-      return this.price.toLocaleString() + ' ₽'
-    },
-  },
+  mixins: [productPropsSchema, computedPrice, generatePhotoLink],
   methods: {
     addProductToCart() {
       this.$store.commit('cart/pushProduct', {
