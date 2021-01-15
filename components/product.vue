@@ -9,7 +9,7 @@
         :src="`https://frontend-test.idaproject.com${photo}`"
         class="product__image"
       />
-      <button class="product__add-to-cart"></button>
+      <button class="product__add-to-cart" @click="addProductToCart"></button>
     </div>
 
     <div class="product__name">{{ name }}</div>
@@ -40,6 +40,16 @@ export default {
   computed: {
     computedPrice() {
       return this.price.toLocaleString() + ' ₽'
+    },
+  },
+  methods: {
+    addProductToCart() {
+      this.$store.commit('cart/pushProduct', {
+        id: this.productId,
+        name: this.name,
+        price: this.price,
+        photo: this.photo,
+      })
     },
   },
 }
