@@ -3,7 +3,7 @@
     <div class="product__view">
       <div class="product__rate">
         <img src="~/assets/star.svg" alt="Звезда" />
-        <b>4.5</b>
+        <b>{{ rating }}</b>
       </div>
       <img
         :src="`https://frontend-test.idaproject.com${photo}`"
@@ -36,6 +36,10 @@ export default {
       type: String,
       required: true,
     },
+    rating: {
+      type: Number,
+      required: true,
+    },
   },
   computed: {
     computedPrice() {
@@ -49,6 +53,7 @@ export default {
         name: this.name,
         price: this.price,
         photo: this.photo,
+        rating: this.rating,
       })
     },
   },

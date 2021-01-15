@@ -7,6 +7,7 @@
       :name="product.name"
       :price="product.price"
       :product-id="product.id"
+      :rating="product.rating"
     />
   </div>
 </template>

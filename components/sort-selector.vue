@@ -4,7 +4,7 @@
     <span @click="toggleFilterVisibility">{{ sortRule }}</span>
     <ul v-if="isFilterVisible" class="select">
       <li @click="sortByPrice('цене')">По цене</li>
-      <li @click="setSortingRule('популярности')">По популярности</li>
+      <li @click="sortByRating('популярности')">По популярности</li>
     </ul>
   </div>
 </template>
@@ -28,6 +28,10 @@ export default {
     sortByPrice(rule) {
       this.setSortingRule(rule)
       this.$store.commit('products/sortProductsByPrice')
+    },
+    sortByRating(rule) {
+      this.setSortingRule(rule)
+      this.$store.commit('products/sortProductsByRating')
     },
   },
 }
