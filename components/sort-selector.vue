@@ -2,7 +2,11 @@
   <div class="sort">
     Сортировать по:
     <span @click="toggleFilterVisibility">{{ sortRule }}</span>
-    <ul v-if="isFilterVisible" class="select">
+    <ul
+      v-if="isFilterVisible"
+      v-click-outside="toggleFilterVisibility"
+      class="select"
+    >
       <li @click="sortByPrice('цене')">По цене</li>
       <li @click="sortByRating('популярности')">По популярности</li>
     </ul>
