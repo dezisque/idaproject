@@ -10,28 +10,35 @@
         <b>Корзина</b>
         <button class="side-cart__close-button" @click="closeSideCart" />
       </div>
-      <div v-if="!cartItemsCounter & !ordered" class="side-cart_empty">
+      <div v-if="!cartItemsCounter && !ordered" class="side-cart_empty">
         Пока что вы ничего не добавлили в корзину.
         <button class="side-cart__button" @click="closeSideCart">
           Перейти к выбору
         </button>
       </div>
-      <div v-if="cartItemsCounter & !ordered" class="side-cart_not-empty">
+      <div v-if="cartItemsCounter && !ordered" class="side-cart_not-empty">
         <div class="side-cart__subtitle">Товары в корзине</div>
         <CartItem
-          v-for="item in cartItems"
-          :key="item.id"
+          v-for="(item, index) in cartItems"
+          :key="index"
           :photo="item.photo"
           :name="item.name"
           :price="item.price"
           :product-id="item.id"
           :rating="item.rating"
+          :index="index"
         />
         <div class="side-cart__subtitle">Оформить заказ</div>
         <form class="side-cart__order-form">
-          <input type="text" placeholder="Ваше имя" />
-          <input type="text" placeholder="Телефон" />
-          <input type="text" placeholder="Адрес" />
+          <label>
+            <input type="text" placeholder="Ваше имя" />
+          </label>
+          <label>
+            <input type="text" placeholder="Телефон" />
+          </label>
+          <label>
+            <input type="text" placeholder="Адрес" />
+          </label>
           <button class="side-cart__button" type="button" @click="submitForm">
             Отправить
           </button>
@@ -55,7 +62,6 @@ export default {
   data() {
     return {
       isSideCartVisible: false,
-      cartMode: 'empty',
       ordered: false,
     }
   },
@@ -153,6 +159,7 @@ export default {
     height: 50px
 
     margin-top: 24px
+    margin-bottom: 210px
 
     background-color: #1F1F1F
     border-radius: 8px

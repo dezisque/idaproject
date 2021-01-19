@@ -29,7 +29,7 @@ export default {
   mixins: [productPropsSchema, computedPrice, generatePhotoLink],
   methods: {
     deleteItem() {
-      this.$store.commit('cart/removeProduct', this.productId)
+      this.$store.commit('cart/removeProduct', this.index)
     },
   },
 }

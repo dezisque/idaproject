@@ -20,6 +20,10 @@ export const productPropsSchema = {
       type: Number,
       required: true,
     },
+    index: {
+      type: Number,
+      default: undefined,
+    },
   },
 }
 

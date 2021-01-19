@@ -6,10 +6,8 @@ export const mutations = {
   pushProduct(state, product) {
     state.products.push(product)
   },
-  removeProduct(state, productId) {
-    state.products = state.products.filter(
-      (product) => product.id !== productId
-    )
+  removeProduct(state, productIndex) {
+    state.products.splice(productIndex, 1)
   },
   cleanCart(state) {
     state.products = []
