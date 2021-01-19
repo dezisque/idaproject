@@ -49,7 +49,9 @@ export default {
     cursor: pointer
     &::after
       content: url(~assets/select-arrow.svg)
-      margin-left: 4px
+      position: relative
+      top: -2px
+      left: 4px
 
 .select
   width: 160px
