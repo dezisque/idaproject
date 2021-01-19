@@ -27,10 +27,11 @@
 import SortSelector from '~/components/sort-selector'
 export default {
   components: { SortSelector },
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, redirect }) {
     const categories = await $axios.$get(
       'https://frontend-test.idaproject.com/api/product-category'
     )
+    redirect(`/catalog/${categories[0].id.toString()}`)
     return { categories }
   },
 }

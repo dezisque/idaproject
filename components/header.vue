@@ -6,7 +6,10 @@
 </template>
 
 <script>
-export default {}
+import Cart from '~/components/cart'
+export default {
+  components: { Cart },
+}
 </script>
 
 <style lang="sass">
@@ -16,8 +19,8 @@ export default {}
 
   padding: 18px 108px 20px 88px
 
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05)
-  border-radius: 0px 0px 8px 8px
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05)
+  border-radius: 0 0 8px 8px
   &__title
     font-size: 22px
     color: #59606D
