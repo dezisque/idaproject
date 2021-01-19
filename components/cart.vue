@@ -18,27 +18,23 @@
       </div>
       <div v-if="cartItemsCounter && !ordered" class="side-cart_not-empty">
         <div class="side-cart__subtitle">Товары в корзине</div>
-        <CartItem
-          v-for="(item, index) in cartItems"
-          :key="index"
-          :photo="item.photo"
-          :name="item.name"
-          :price="item.price"
-          :product-id="item.id"
-          :rating="item.rating"
-          :index="index"
-        />
+        <div>
+          <CartItem
+            v-for="(item, index) in cartItems"
+            :key="index"
+            :photo="item.photo"
+            :name="item.name"
+            :price="item.price"
+            :product-id="item.id"
+            :rating="item.rating"
+            :index="index"
+          />
+        </div>
         <div class="side-cart__subtitle">Оформить заказ</div>
         <form class="side-cart__order-form">
-          <label>
-            <input type="text" placeholder="Ваше имя" />
-          </label>
-          <label>
-            <input type="text" placeholder="Телефон" />
-          </label>
-          <label>
-            <input type="text" placeholder="Адрес" />
-          </label>
+          <input type="text" placeholder="Ваше имя" />
+          <input type="text" placeholder="Телефон" />
+          <input type="text" placeholder="Адрес" />
           <button class="side-cart__button" type="button" @click="submitForm">
             Отправить
           </button>
@@ -124,10 +120,17 @@ export default {
       height: 50px
       padding: 14px 0 15px 14px
       box-sizing: border-box
-      margin-top: 16px
       border-radius: 8px
+
+      margin-bottom: 16px
       border: none
       background-color: #F8F8F8
+      font-size: 16px
+      color: #1F1F1F
+      &::placeholder
+        color: #959DAD
+      &:last-of-type
+        margin-bottom: 0
   &_empty
     font-size: 22px
 

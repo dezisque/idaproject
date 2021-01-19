@@ -46,10 +46,8 @@ export default {
   padding-top: 32px
   padding-left: 88px
 
-  //width: 248px
   min-width: 160px
   height: 100%
-  //box-sizing: border-box
 
   &__header
     color: #1F1F1F

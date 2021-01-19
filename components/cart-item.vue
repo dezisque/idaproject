@@ -35,7 +35,8 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
+
 .cart-item
   display: flex
   padding: 12px 22px 15px 25px
@@ -44,6 +45,10 @@ export default {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05)
   border-radius: 8px
   margin-bottom: 12px
+
+  &:last-of-type
+    margin-bottom: 32px
+
   &__delete-button
     margin-left: auto
     width: 20px
