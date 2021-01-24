@@ -14,7 +14,7 @@
     </div>
 
     <div class="product__name">{{ name }}</div>
-    <b class="product__price">{{ computedPrice }}</b>
+    <b class="product__price">{{ price | formatPrice }}</b>
   </div>
 </template>
 

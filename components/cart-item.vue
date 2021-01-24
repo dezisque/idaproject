@@ -7,8 +7,7 @@
     />
     <div class="cart-item__specifications">
       <div class="cart-item__name">{{ name }}</div>
-      <b class="cart-item__price">{{ computedPrice }}</b>
-
+      <b class="cart-item__price">{{ price | formatPrice }}</b>
       <div class="cart-item__rate">
         <img src="~/assets/star.svg" alt="Звезда" />
         <b>{{ rating }}</b>
@@ -58,15 +57,19 @@ export default {
     background: url("~assets/trash.svg") white
 
     cursor: pointer
+
   &__name
     color: #59606D
+
   &__price
     display: block
     margin-top: 6px
+
   &__specifications
     font-size: 14px
     width: 170px
     margin-left: 34px
+
   &__image
     width: 70px
     height: 90px
@@ -81,6 +84,7 @@ export default {
     height: 20px
 
     margin-top: 16px
+
     b
       margin-top: 3px
 </style>

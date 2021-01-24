@@ -28,9 +28,9 @@ export const productPropsSchema = {
 }
 
 export const computedPrice = {
-  computed: {
-    computedPrice() {
-      return this.price.toLocaleString() + ' ₽'
+  filters: {
+    formatPrice(price) {
+      return price.toLocaleString() + ' ₽'
     },
   },
 }
