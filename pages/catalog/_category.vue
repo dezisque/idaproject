@@ -35,7 +35,8 @@ export default {
       this.$store.commit(
         'products/setProducts',
         await this.$axios.$get(
-          `https://frontend-test.idaproject.com/api/product?category=${this.$route.params.category}`
+          'https://frontend-test.idaproject.com/api/product',
+          { params: { category: this.$route.params.category } }
         )
       )
     },
