@@ -10,12 +10,14 @@
         <b>Корзина</b>
         <button class="side-cart__close-button" @click="closeSideCart" />
       </div>
+
       <div v-if="!cartItemsCounter && !ordered" class="side-cart_empty">
         Пока что вы ничего не добавлили в корзину.
         <button class="side-cart__button" @click="closeSideCart">
           Перейти к выбору
         </button>
       </div>
+
       <div v-if="cartItemsCounter && !ordered" class="side-cart_not-empty">
         <div class="side-cart__subtitle">Товары в корзине</div>
         <div>
@@ -32,14 +34,26 @@
         </div>
         <div class="side-cart__subtitle">Оформить заказ</div>
         <form class="side-cart__order-form">
-          <input type="text" placeholder="Ваше имя" />
-          <input type="text" placeholder="Телефон" />
-          <input type="text" placeholder="Адрес" />
-          <button class="side-cart__button" type="button" @click="submitForm">
+          <input v-model="form.name" type="text" placeholder="Ваше имя" />
+          <input
+            v-model="form.phone"
+            v-mask="'+9 999 999-99-99'"
+            type="text"
+            placeholder="Телефон"
+          />
+          <input v-model="form.address" type="text" placeholder="Адрес" />
+          <button
+            class="side-cart__button"
+            type="button"
+            :disabled="$v.$invalid"
+            :class="{ 'side-cart__button_disabled': $v.$invalid }"
+            @click="submitForm"
+          >
             Отправить
           </button>
         </form>
       </div>
+
       <div v-if="ordered" class="side-cart_ordered">
         <img src="~assets/ok-emoji.png" alt="Успешно" />
         <b>Заявка успешно отправлена</b>
@@ -52,14 +66,32 @@
 </template>
 
 <script>
+import AwesomeMask from 'awesome-mask'
+import { required, minLength } from 'vuelidate/lib/validators'
 import CartItem from '~/components/cart-item'
+
 export default {
   components: { CartItem },
+  directives: {
+    mask: AwesomeMask,
+  },
   data() {
     return {
       isSideCartVisible: false,
       ordered: false,
+      form: {
+        name: '',
+        phone: '+7 ',
+        address: '',
+      },
     }
+  },
+  validations: {
+    form: {
+      name: { required },
+      phone: { required, minLength: minLength(16) },
+      address: { required },
+    },
   },
   computed: {
     cartItemsCounter() {
@@ -175,6 +207,9 @@ export default {
 
     &:hover
       background-color: #59606D
+    &_disabled
+      background-color: #59606D
+      cursor: not-allowed
 .blur
   position: fixed
   opacity: 80%

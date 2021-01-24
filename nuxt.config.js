@@ -14,7 +14,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['~/plugins/v-click-outside'],
+  plugins: ['~/plugins/v-click-outside', '~/plugins/vuelidate'],
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
