@@ -17,7 +17,6 @@ import Product from '~/components/product'
 
 export default {
   components: { Product },
-  watchQuery: true,
   computed: {
     products() {
       return this.$store.state.products.products
