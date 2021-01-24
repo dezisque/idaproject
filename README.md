@@ -1,20 +1,15 @@
-# TestList
+# [Тестовое задание](https://frontend-test.idaproject.com/) от idaproject
 
-## Build Setup
+## Запуск
 
 ```bash
-# install dependencies
 $ yarn install
 
-# serve with hot reload at localhost:3000
+// Dev версия
 $ yarn dev
 
-# build for production and launch server
+// Production версия
 $ yarn build
 $ yarn start
 
-# generate static project
-$ yarn generate
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
