@@ -13,3 +13,7 @@ $ yarn build
 $ yarn start
 
 ```
+
+
+## Hello kitty
+// Я Иван, смеюсь.)))
